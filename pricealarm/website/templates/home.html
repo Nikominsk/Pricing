@@ -1,1 +1,24 @@
-<h1>Hello to home</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+</head>
+<body>
+
+    <a href="/impressum.html">Impressum</a>
+    <span>Email: {{ email_input }}</span>
+    <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %}
+        <input  type = "email" required = "required" placeholder="Email"
+                name = "email-input">
+
+        <button type="submit">Activate</button>
+    </form>
+    
+</body>
+</html>
